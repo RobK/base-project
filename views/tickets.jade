@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  h2 Ticket History
+
+  p Below are your previous purchases:
+  ul
+      - each ticket in tickets
+        li You bought #{ticket.number} ticket(s) for #{ticket.who}
+      - else
+        li You haven't bought any tickets yet!
+
+
+  button.btn.btn-large.btn-primary
+    a(href="/tickets/buy/")
+      span Buy Tickets!
+
+
+  h2 Gift Tickets
+  p Below are your tickets that have been gifted to you
+    ul
+      - each ticket in gifts
+        li #{ticket.username} bought you gift (!{ticket.comment})
+      - else
+        li You haven't received any gift tickets yet!

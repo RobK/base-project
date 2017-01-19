@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  form.form-signin(action="/login", method="post")
+    h2.form-signin-heading Please sign in
+    p
+      input.input-block-level(type="text", name="username", value="john")
+    p
+      input.input-block-level(type="password", name="password", value="Password")
+    button.btn.btn-large.btn-primary(type="submit") Sign in

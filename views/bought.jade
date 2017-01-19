@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  h2 Tickets Bought!
+
+  p You have bought #{count} ticket(s) for #{who}!
+
+  p
+      button.btn.btn-large.btn-primary
+          a(href="/tickets/")
+              span Return

@@ -1,0 +1,24 @@
+extends layout
+
+block content
+  h2 Buy Tickets
+  form.form-signin(action="/tickets/buy/confirm", method="get")
+      p
+          label Number of tickets:
+             input.input-block-level(type="text", name="number", value="1", size="3")
+
+      p
+        label Gift to (optional):
+          select(name="who")
+            <option value="">- Not a gift -</option>
+            <option value=""></option>
+            - each user in users
+                <option>#{user.username}</option>
+      p
+        label Gift comment (optional):
+            input(name="comment", placeholder="Gift comment")
+
+      label.checkbox Confirm!
+          <input type="checkbox" name="confirm" value="1" />
+      p
+          button.btn.btn-large.btn-primary(type="submit") Buy Tickets
