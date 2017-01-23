@@ -12,9 +12,9 @@ router.post('/', function(req, res, next) {
   if (sql.login(req.body['username'], req.body['password']).length > 0) {
     res.cookie('username', req.body['username'], { httpOnly: false});
     //res.render('loggedIn', { title: 'Express' });
-    res.redirect("/tickets?username=" + req.body['username']);
+    res.redirect("tickets?username=" + req.body['username']);
   } else {
-    res.redirect("/");
+    res.redirect("../");
   }
 
 

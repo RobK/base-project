@@ -11,7 +11,7 @@ router.get('/', function(req, res, next) {
   sql.populateDb();
 
   res.cookie('username', '', { httpOnly: false, expires: new Date(0)});
-  res.send('Logged out and Database reset! <a href="/">Login Again!</a>');
+  res.send('Logged out and Database reset! <a href="../">Login Again!</a>');
 
 });
 
