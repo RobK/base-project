@@ -1,7 +1,7 @@
 extends layout
 
 block content
-  form.form-signin(action="/login", method="post")
+  form.form-signin(action="#{stage}/login", method="post")
     h2.form-signin-heading Please sign in
     p
       input.input-block-level(type="text", name="username", value="john")

@@ -23,6 +23,7 @@
     "Resources": {
         "ApiGatewayApi": {
             "Type": "AWS::ApiGateway::RestApi",
+            "DependsOn": "LambdaFunction",
             "Properties": {
                 "Description": "AWS Serverless Express API",
                 "BodyS3Location": {
@@ -109,14 +110,19 @@
                         "Ref": "LambdaFunctionS3Key"
                     }
                 },
-                "FunctionName": "kehoro-serverless-tmp",
+                "FunctionName": "AwsServerlessExpressFunction",
                 "Handler": "lambda.handler",
                 "MemorySize": 128,
                 "Role": {
                     "Fn::GetAtt": ["LambdaExecutionRole", "Arn"]
                 },
                 "Runtime": "nodejs4.3",
-                "Timeout": 30
+                "Timeout": 30,
+                "Environment": {
+                    "Variables": {
+                        "IS_LAMBDA": true
+                    }
+                }
             }
         }
     },

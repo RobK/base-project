@@ -5,16 +5,19 @@ var express = require('express');
 var router = express.Router();
 
 var sql = require('../sql');
+var stage = "";
+if (process.env.IS_LAMBDA) {
+  stage = "/prod";
+}
 
 /* GET users listing. */
 router.post('/', function(req, res, next) {
   console.log('>>>>>>>>>>>>>>>>>>>>>>>');
   if (sql.login(req.body['username'], req.body['password']).length > 0) {
     res.cookie('username', req.body['username'], { httpOnly: false});
-    //res.render('loggedIn', { title: 'Express' });
-    res.redirect("tickets?username=" + req.body['username']);
+    res.redirect(stage + "/tickets?username=" + req.body['username']);
   } else {
-    res.redirect("../");
+    res.redirect(stage + "/");
   }
 
 
