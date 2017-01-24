@@ -20,6 +20,6 @@ block content
   p Below are your tickets that have been gifted to you
     ul
       - each ticket in gifts
-        li #{ticket.username} bought you gift (!{ticket.comment})
+        li #{ticket.username} bought you #{ticket.number} gift ticket(s) (!{ticket.comment})
       - else
         li You haven't received any gift tickets yet!
